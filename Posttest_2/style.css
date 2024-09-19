@@ -6,8 +6,8 @@
 .lembar {
   border-radius: 7px;
   padding: 25px;
-  justify-conent: spce-between;
-  display: flex;
+  justify-content: space-evenly;
+  display: inline-flex;
 }
 
 .click {
@@ -27,7 +27,7 @@
 }
 
 .informasi {
-  margin: 10px;
+  margin: 15px;
 }
 
 .desk {
