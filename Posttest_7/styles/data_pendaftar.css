@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  --kuning: hsl(47, 100%, 61%);
+  --hijau: #009b4c;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+.kembali_beranda {
+    height: 35px;
+    width: 180px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border-color: none;
+    background-color: rgb(72, 223, 117);
+}
+
+.table-pendaftar {
+    border-collapse: collapse;
+    width: 80%;
+    font-size: 18px;
+    margin-top: -10px;
+  }
+  
+  .table-pendaftar-header,
+  .table-pendaftar-data {
+    border: 1px solid #646464;
+    text-align: center;
+    white-space: nowrap;
+    padding: 8px;
+    margin: 20px;
+  }
+  
+  .table-pendaftar-header:nth-child(1),
+  .table-pendaftar-row:nth-child(1),
+  .table-pendaftar-data:nth-child(1) {
+    width: 35px;
+    text-align: center;
+  }
+  
+  thead > .table-pendaftar-row {
+    background-color: var(--hijau);
+  }
+  
+  tbody > .table-pendaftar-row:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .search-bar-pendaftar {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    border: 5px solid var(--hijau);
+    width: fit-content;
+    border-radius: 25px;
+  }
+  
+  .search-input-pendaftar {
+    border: 0;  
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    height: 40px;
+    width: 500px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    outline: none;
+  }
+  
+  .search-button-pendaftar {
+    border: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: white;
+    width: 50px;
+    outline: none;
+  }
+
+.hapus-data{
+    border: 2px;
+    width: 25px;
+    height: 25px;
+    background-color: #ff0000;
+}
+
+.edit-data i,
+.hapus-data i{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.button-UD{
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-data{
+    border: 2px;
+    width: 25px;
+    height: 25px;
+    background-color: #ffdd00;
+}
+
+a,
+.button {
+  text-decoration: none;
+  color: unset;
+}
