@@ -62,7 +62,7 @@
         </div>
         <ul>
             <li><a class="nowrap" href="#beranda">Beranda</a></li>
-            <li><a class="nowrap" href="#about">Tentang Kami</a></li>
+            <li><a class="nowrap" href="tentang.php">Tentang Kami</a></li>
             <li><a class="nowrap" href="#kontak">Kontak</a></li>
         </ul>
     </nav>
@@ -118,7 +118,7 @@
                 </div>
             </form>
         </div>
-        <div class="wrapper">
+        <div class="wrapper" id="beranda">
             <!-- Untuk Menampilkan Semua Webinar Yang Dibuat Oleh Banyak User -->
             <?php
                 if (mysqli_num_rows($result) > 0) {
@@ -168,7 +168,7 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-kontak">
+        <div class="footer-kontak" id="kontak">
             <h5>Kontak</h5>
             <div class="contact-us">
                 <img src="assets/email.png" alt="email">
@@ -180,7 +180,7 @@
             </div>
         </div>
         <div class="footer-tengah">
-            <h5>Hapus Akun</h5>
+            <a href="hapus_akun.php?id_user=<?php echo $id_user ?>"><h5>Hapus Akun</h5></a>
             <h6>Website Kelompok PA</h6>
         </div>
         <div class="logout">

@@ -1,7 +1,7 @@
 <?php
     require "koneksi.php";
     session_start();
-    if (!isset($_SESSION['login']) || $_SESSION['login']!==true || $_SESSION['role']!=='user') {
+    if (!isset($_SESSION['login']) || $_SESSION['login']!==true) {
         header('Location: login.php');
         exit;
     }
@@ -13,7 +13,7 @@
         parse_str($url_components['query'], $params);
     }
 
-    if (isset($_GET['id_webinar']) ? $_GET['id_webinar'] : '') {
+    if (isset($_GET['id_webinar'])) {
         if (file_exists('simpan_url.txt')) {
             $lines = file('simpan_url.txt');
             $first = trim($lines[0]);
@@ -34,7 +34,7 @@
         $user = mysqli_fetch_assoc($sql_user);
     }
 
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@$%&()';
     $charactersLength = strlen($characters);
     $randomString = '';
 
@@ -139,7 +139,7 @@
                             $username_komen_fetch = $username_komen->fetch_assoc();
 
                             // Menampilkan komentar
-                            echo '<div style="bordr: 1px solid orange; width: 100%; height: 17%; display: flex; flex-direction: column; justify-content: center; gap: 2%; background-color: #4b9eec; color: white;">';
+                            echo '<div style="border: 1px solid orange; width: 100%; height: 17%; display: flex; flex-direction: column; justify-content: center; gap: 2%; background-color: #4b9eec; color: white;">';
 
                             // Jika bukan pemilik webinar, tampilkan komentar di kiri
                             if (!$isOwner) {

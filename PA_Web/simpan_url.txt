@@ -1,2 +1,0 @@
-/PA_Web/index.php?id_user=2
-/PA_Web/index.php?action=lainnya&id_user=2

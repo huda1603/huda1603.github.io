@@ -1,7 +1,7 @@
 <?php
     require "koneksi.php";
     session_start();
-    if (!isset($_SESSION['login']) || $_SESSION['login']!==true || $_SESSION['role']!=='user') {
+    if (!isset($_SESSION['login']) || $_SESSION['login']!==true) {
         header('Location: login.php');
         exit;
     }

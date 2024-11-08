@@ -45,6 +45,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: gray;
 }
 .wrapper-left-bottom-detail {
     /* border: 1px solid orange; */

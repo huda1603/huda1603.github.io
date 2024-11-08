@@ -19,7 +19,7 @@
         $deadline = $_POST["deadline"];
         $nomor = $_POST["nomor"];
 
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@$%&()';
         $charactersLength = strlen($characters);
         $randomString = '';
 

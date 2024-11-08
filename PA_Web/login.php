@@ -11,7 +11,6 @@
 
         if (mysqli_num_rows($result) === 1) {
             $user = mysqli_fetch_assoc($result);
-            $_SESSION['login'] = true;
 
             if (password_verify($passwor, $user['kata_sandi'])) {
                 $_SESSION['login'] = true;
@@ -32,6 +31,7 @@
             }
         } else {
             if ($username === 'Admin' && $passwor === 'Admin') {
+                $_SESSION['login'] = true;
                 $_SESSION['role'] = 'admin';
                 echo "
                     <script>

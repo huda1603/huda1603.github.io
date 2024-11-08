@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Nov 06, 2024 at 02:05 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 08 Nov 2024 pada 19.00
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar`
+-- Struktur dari tabel `komentar`
 --
 
 CREATE TABLE `komentar` (
   `id_komentar` varchar(10) NOT NULL,
   `komentar` varchar(100) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `id_webinar` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `komentar`
+--
+
+INSERT INTO `komentar` (`id_komentar`, `komentar`, `id_user`, `id_webinar`) VALUES
+('%LXaqHd!Mj', 'Halo Hudaaaaa', 2, '0ajZJOR5!E');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -52,16 +60,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_lengkap`, `nama_panggilan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `username`, `kata_sandi`, `role`) VALUES
-(2, 'UdaCuy', 'uda', 'Samarinda', '2024-10-17', 'laki_laki', 'udaa', '$2y$10$7dZS2e03o8qRFMwQxQKpseRkMTIPJHJX9OhYpjKhlsa7Sz2.speIC', 'User');
+(2, 'UdaCuy', 'uda', 'Samarinda', '2024-10-17', 'laki_laki', 'udaa', '$2y$10$7dZS2e03o8qRFMwQxQKpseRkMTIPJHJX9OhYpjKhlsa7Sz2.speIC', 'User'),
+(4, 'giyo', 'giyoaja', 'Samarinda', '2024-11-08', 'laki_laki', 'giyo', '$2y$10$urqBZaawdwGVmxUzMpSkB.75XqaKMTHTBZsdEHbzLbnzemrRlZ4iW', 'User'),
+(5, 'otan', 'tan', 'samarinda', '2024-11-12', 'laki_laki', 'tan', '$2y$10$ZHWSYe00TnjT/cCxumktm.WXanDH1hCFW.h2Y2R0IhHL/tpcKr9m6', 'User');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `webinar`
+-- Struktur dari tabel `webinar`
 --
 
 CREATE TABLE `webinar` (
@@ -72,65 +82,69 @@ CREATE TABLE `webinar` (
   `tanggal_mulai` date NOT NULL,
   `deadline` date NOT NULL,
   `foto_webinar` varchar(255) NOT NULL,
+  `nomor_kontak` varchar(15) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `webinar`
+-- Dumping data untuk tabel `webinar`
 --
 
-INSERT INTO `webinar` (`id_webinar`, `nama_webinar`, `deskripsi`, `tautan`, `tanggal_mulai`, `deadline`, `foto_webinar`, `id_user`) VALUES
-('5bEgU9p6SL', 'Bahasa Indonesia Vs Bahasa Slang', 'Bahasa Indonesia', 'http://s.id/daftar-sohibbercerita14', '2024-10-26', '2024-10-26', '26-10-24-WhatsApp Image 2024-10-25 at 20.31.35.jpeg', 2),
-('S@J2DqL(VM', 'Mengubah Kecemasan Menjadi Kekuatan', 'Strategi Psikologis Untuk Sukses Dalam Dunia Pendidikan Dan Pekerjaan', 'https://bit.ly/EEC_KesehatanMental_25Okt2024', '2024-10-31', '2024-10-28', '26-10-24-WhatsApp Image 2024-10-24 at 20.35.05.jpeg', 2),
-('Y7swGrYOj(', 'Kuasa Bahasa Spanyol Lewat Hiburan', 'Cocok Untuk Yang Ingin Bekerja Di Spanyol', 'https://minartis.com/webinar-bahasa-spanyol/', '2024-10-26', '2024-10-25', '25-10-24-WhatsApp Image 2024-10-24 at 16.59.53.jpeg', 2);
+INSERT INTO `webinar` (`id_webinar`, `nama_webinar`, `deskripsi`, `tautan`, `tanggal_mulai`, `deadline`, `foto_webinar`, `nomor_kontak`, `id_user`) VALUES
+('0ajZJOR5!E', 'Bahasa Indonesia Vs Bahasa Slang', 'Bahasa Indonesia', 'http://s.id/daftar-sohibbercerita14', '2024-11-08', '2024-11-08', '08-11-24-WhatsApp Image 2024-10-25 at 20.31.35.jpeg', '628xxxxxxxx', 2),
+('4y0OhDOCjJ', 'Cari Cuan Ala Gen Z', 'Temukan inspirasi dan insight dari kak @vincentliyanto sebagai Managing Partner Abadi Premium Consultant dan kak @puti.adella yang menjadi PIC Program UMKM GO Online tahun 2019-2023 di SohIB Bercerita minggu ini!', 'https://minartis.com/generasi-z-bisa-sukses/', '2024-11-10', '2024-11-09', '08-11-24-WhatsApp Image 2024-11-08 at 17.41.32.jpeg', '628xxxxxxxx', 4),
+('f)bbJjtvCH', 'The Myth Of Math', 'Bingung mengajarkan matematika tanpa drama? Bingung bagaimana agar anak tidak kesal saat belajar matematika? Yuk, ikutan webinarnya! ', 'https://minartis.com/matematika-pendekatan-montessori/', '2024-11-08', '2024-11-08', '08-11-24-WhatsApp Image 2024-10-31 at 20.21.04.jpeg', '628xxxxxxx', 2),
+('K9aDuN@raI', 'DEFINING SELF-IDENTITY', 'Mengetahui Self-Identity kita sendiri dapat membantu kita mengetahui banyak hal penting, seperti arah kehidupan', 'http://s.id/daftar-sohibbercerita14', '2024-11-08', '2024-11-08', '08-11-24-WhatsApp Image 2024-10-28 at 20.25.15.jpeg', '628xxxxxxx', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `komentar`
+-- Indeks untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id_komentar`),
-  ADD KEY `webinar_ke_komentar` (`id_webinar`);
+  ADD KEY `id_user` (`id_user`,`id_webinar`),
+  ADD KEY `id_webinar` (`id_webinar`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `webinar`
+-- Indeks untuk tabel `webinar`
 --
 ALTER TABLE `webinar`
   ADD PRIMARY KEY (`id_webinar`),
   ADD KEY `relasi_user_ke_webinar` (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `komentar`
+-- Ketidakleluasaan untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
+  ADD CONSTRAINT `user_ke_komentar` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE,
   ADD CONSTRAINT `webinar_ke_komentar` FOREIGN KEY (`id_webinar`) REFERENCES `webinar` (`id_webinar`) ON DELETE CASCADE;
 
 --
--- Constraints for table `webinar`
+-- Ketidakleluasaan untuk tabel `webinar`
 --
 ALTER TABLE `webinar`
   ADD CONSTRAINT `relasi_user_ke_webinar` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE;
